@@ -1,7 +1,7 @@
 import React, { useState, useRef, Fragment } from 'react';
 import { Button, Form, FormControl, ButtonToolbar, FormGroup, ControlLabel, HelpBlock, Nav, Toggle } from 'rsuite';
 
-import Dictionary from '../../../src/components/dictionary';
+import { Dictionary } from '../../../src/components';
 
 const dictionarySchema = [
   {

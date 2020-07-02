@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormGroup, ControlLabel, Tag, HelpBlock, Toggle } from 'rsuite';
+import { Form, FormGroup, ControlLabel, HelpBlock, Toggle } from 'rsuite';
 
 const SuspendForm = ({ formValue = {}, formError = null, onChange }) => {
   formValue = formValue || {};
