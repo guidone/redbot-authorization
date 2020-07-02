@@ -20,7 +20,8 @@ plug('user-tabs', AuthorizationForm, {
 const Legend = () => (
   <div>
     <NodeRedNode>Authorization</NodeRedNode>
-
+      <p>Set the chatbot private, only authorized user will be able to use the chatbot. Set the authorization in the users section.</p>
+      <p>For public chatbot it's possibile to suspend a user.</p>
   </div>
 );
 

@@ -11,6 +11,10 @@ const dictionarySchema = [
   {
     name: 'authorization.suspended',
     description: 'Shown when the user is suspeded in a public chatbot'
+  },
+  {
+    name: 'authorization.userNotFound',
+    description: 'Shown when the user is not found on the local db, something went wrong'
   }
 ];
 

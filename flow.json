@@ -1,154 +1,173 @@
 [
-  {
-      "id": "4fef8537.9af4bc",
-      "type": "subflow",
-      "name": "Authorization",
-      "info": "Check if the user is authorized or not suspended (first output), otherwise redirects the flow to the second output.\n\nGo to [Users](/mc/mc/users) control panel to suspend an user. \n\nVersion: _0.9.0_\n\nUrl: [GitHub](https://github.com/guidone/redbot-authorization)",
-      "category": "RedBot Flows",
-      "in": [
-          {
-              "x": 100,
-              "y": 120,
-              "wires": [
-                  {
-                      "id": "d9a15a3b.b186a8"
-                  }
-              ]
-          }
-      ],
-      "out": [
-          {
-              "x": 1060,
-              "y": 40,
-              "wires": [
-                  {
-                      "id": "d9a15a3b.b186a8",
-                      "port": 1
-                  },
-                  {
-                      "id": "3686cc04.87c434",
-                      "port": 0
-                  }
-              ]
-          },
-          {
-              "x": 1040,
-              "y": 280,
-              "wires": [
-                  {
-                      "id": "de9e68bf.4f5ea8",
-                      "port": 0
-                  },
-                  {
-                      "id": "1cfce7d7.b7e5d8",
-                      "port": 0
-                  }
-              ]
-          }
-      ],
-      "env": [],
-      "color": "#ff6633",
-      "outputLabels": [
-          "User authorized or not suspended",
-          "User not authorized or suspended "
-      ],
-      "icon": "font-awesome/fa-key"
-  },
-  {
-      "id": "fe2d80e9.1071",
-      "type": "mc-configuration",
-      "z": "4fef8537.9af4bc",
-      "namespace": "authorization",
-      "debug": false,
-      "x": 210,
-      "y": 220,
-      "wires": [
-          []
-      ]
-  },
-  {
-      "id": "f1664070.40f1f",
-      "type": "function",
-      "z": "4fef8537.9af4bc",
-      "name": "Check if suspended",
-      "func": "const { user } = msg.payload || {};\nconst privateChatbot = global.get('authorization_private'); \n\nconsole.log('USER data', user, privateChatbot)\n\nif (privateChatbot) {\n  if (user != null && user.payload != null && user.payload.authorized) {\n    return [msg, null, null];    \n  } else {\n    return [null, msg, null];    \n  }\n}\n\nif (!privateChatbot) {\n  if (user != null && user.payload != null && user.payload.suspended) {\n    return [null, null, msg];    \n  } else {\n    return [msg, null, null];    \n  }\n}\n\n\n\n",
-      "outputs": 3,
-      "noerr": 0,
-      "initialize": "",
-      "finalize": "",
-      "x": 520,
-      "y": 140,
-      "wires": [
-          [
-              "3686cc04.87c434"
-          ],
-          [
-              "de9e68bf.4f5ea8"
-          ],
-          [
-              "1cfce7d7.b7e5d8"
-          ]
-      ]
-  },
-  {
-      "id": "d9a15a3b.b186a8",
-      "type": "mc-graphql",
-      "z": "4fef8537.9af4bc",
-      "name": "",
-      "query": "query {\n  user(userId: \"{{userId}}\") {\n    id,\n    first_name,\n    last_name,\n    username,\n    payload\n  }\n}",
-      "debug": true,
-      "noerr": 0,
-      "x": 250,
-      "y": 120,
-      "wires": [
-          [
-              "f1664070.40f1f"
-          ],
-          []
-      ]
-  },
-  {
-      "id": "3686cc04.87c434",
-      "type": "chatbot-pop-message",
-      "z": "4fef8537.9af4bc",
-      "x": 800,
-      "y": 120,
-      "wires": [
-          []
-      ]
-  },
-  {
-      "id": "de9e68bf.4f5ea8",
-      "type": "chatbot-message",
-      "z": "4fef8537.9af4bc",
-      "name": "Not authorized",
-      "message": [
-          {
-              "message": "{{tx.authorization.notAuthorized}}"
-          }
-      ],
-      "language": "none",
-      "x": 800,
-      "y": 160,
-      "wires": [
-          []
-      ]
-  },
-  {
-      "id": "1cfce7d7.b7e5d8",
-      "type": "chatbot-message",
-      "z": "4fef8537.9af4bc",
-      "name": "Suspended",
-      "message": [
-          {
-              "message": "{{tx.authorization.suspended}}"
-          }
-      ],
-      "language": "none",
-      "x": 790,
-      "y": 200,
-      "wires": [
-          []
-      ]
-  }
+    {
+        "id": "4fef8537.9af4bc",
+        "type": "subflow",
+        "name": "Authorization",
+        "info": "Check if the user is authorized or not suspended (first output), otherwise redirects the flow to the second output.\n\nGo to [Users](/mc/mc/users) control panel to suspend an user. \n\nVersion: _0.9.1_\n\nUrl: [GitHub](https://github.com/guidone/redbot-authorization)",
+        "category": "RedBot Flows",
+        "in": [
+            {
+                "x": 100,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "d9a15a3b.b186a8"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1060,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "3686cc04.87c434",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1040,
+                "y": 280,
+                "wires": [
+                    {
+                        "id": "de9e68bf.4f5ea8",
+                        "port": 0
+                    },
+                    {
+                        "id": "1cfce7d7.b7e5d8",
+                        "port": 0
+                    },
+                    {
+                        "id": "61a576aa.1c73d8",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#ff6633",
+        "outputLabels": [
+            "User authorized or not suspended",
+            "User not authorized or suspended "
+        ],
+        "icon": "font-awesome/fa-key"
+    },
+    {
+        "id": "fe2d80e9.1071",
+        "type": "mc-configuration",
+        "z": "4fef8537.9af4bc",
+        "namespace": "authorization",
+        "debug": false,
+        "x": 210,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1664070.40f1f",
+        "type": "function",
+        "z": "4fef8537.9af4bc",
+        "name": "Check if suspended",
+        "func": "const { user } = msg.payload || {};\nconst privateChatbot = global.get('authorization_private'); \n\nconsole.log('USER data', user, privateChatbot)\n\nif (privateChatbot) {\n  if (user != null && user.payload != null && user.payload.authorized) {\n    return [msg, null, null];    \n  } else {\n    return [null, msg, null];    \n  }\n}\n\nif (!privateChatbot) {\n  if (user != null && user.payload != null && user.payload.suspended) {\n    return [null, null, msg];    \n  } else {\n    return [msg, null, null];    \n  }\n}\n\n\n\n",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 520,
+        "y": 140,
+        "wires": [
+            [
+                "3686cc04.87c434"
+            ],
+            [
+                "de9e68bf.4f5ea8"
+            ],
+            [
+                "1cfce7d7.b7e5d8"
+            ]
+        ]
+    },
+    {
+        "id": "d9a15a3b.b186a8",
+        "type": "mc-graphql",
+        "z": "4fef8537.9af4bc",
+        "name": "",
+        "query": "query {\n  user(userId: \"{{userId}}\") {\n    id,\n    first_name,\n    last_name,\n    username,\n    payload\n  }\n}",
+        "debug": true,
+        "noerr": 0,
+        "x": 250,
+        "y": 120,
+        "wires": [
+            [
+                "f1664070.40f1f"
+            ],
+            [
+                "61a576aa.1c73d8"
+            ]
+        ]
+    },
+    {
+        "id": "3686cc04.87c434",
+        "type": "chatbot-pop-message",
+        "z": "4fef8537.9af4bc",
+        "x": 800,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "de9e68bf.4f5ea8",
+        "type": "chatbot-message",
+        "z": "4fef8537.9af4bc",
+        "name": "Not authorized",
+        "message": [
+            {
+                "message": "{{tx.authorization.notAuthorized}}"
+            }
+        ],
+        "language": "none",
+        "x": 800,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1cfce7d7.b7e5d8",
+        "type": "chatbot-message",
+        "z": "4fef8537.9af4bc",
+        "name": "Suspended",
+        "message": [
+            {
+                "message": "{{tx.authorization.suspended}}"
+            }
+        ],
+        "language": "none",
+        "x": 790,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "61a576aa.1c73d8",
+        "type": "chatbot-message",
+        "z": "4fef8537.9af4bc",
+        "name": "User not found",
+        "message": [
+            {
+                "message": "{{tx.authorization.userNotFound}}"
+            }
+        ],
+        "language": "none",
+        "x": 800,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    }
 ]
