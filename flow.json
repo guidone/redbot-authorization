@@ -77,9 +77,10 @@
       "id": "260f24fe.f463ac",
       "type": "mc-configuration",
       "z": "ab7c3e09.cb342",
-      "namespace": "authorization",
-      "debug": false,
-      "x": 230,
+      "namespace": "redbot-authorization",
+      "chatbotId": "",
+      "debug": true,
+      "x": 250,
       "y": 420,
       "wires": [
           [
