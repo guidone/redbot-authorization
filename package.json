@@ -1,6 +1,6 @@
 {
-  "name": "red-bot-authorization",
-  "version": "0.9.1",
+  "name": "redbot-authorization",
+  "version": "1.1.0",
   "description": "Handle user authorization and suspension in the chatbot. A plugin for Red-Bot.io",
   "main": "index.js",
   "author": {
@@ -8,8 +8,8 @@
     "email": "guido.bellomo@gmail.com",
     "url": "https://github.com/guidone"
   },
-  "homepage": "https://github.com/guidone/red-bot-authorization",
-  "license": "ISC",
+  "homepage": "https://github.com/guidone/redbot-authorization",
+  "license": "MIT",
   "repository": "",
   "dependencies": {
   },

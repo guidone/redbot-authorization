@@ -41,7 +41,7 @@ plug('sidebar', null, {
 plug(
   'pages',
   withConfigurationPage(
-    'authorization',
+    'redbot-authorization',
     ConfigurationForm,
     { Legend, title: 'Bot Access' }
   ),
