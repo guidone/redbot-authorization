@@ -3,7 +3,7 @@
       "id": "ab7c3e09.cb342",
       "type": "subflow",
       "name": "Authorization",
-      "info": "Check if the user is authorized or not suspended (first output), otherwise redirects the flow to the second output.\n\nGo to [Users](/mc/mc/users) control panel to suspend an user. \n\nVersion: _0.9.1_\n\nUrl: [GitHub](https://github.com/guidone/redbot-authorization)",
+      "info": "Check if the user is authorized or not suspended (first output), otherwise redirects the flow to the second output.\n\nGo to [Users](/mc/mc/users) control panel to suspend an user. \n\n![](https://dashboard.red-bot.io/assets/78677371-60ee-4534-a3ef-e287212d3acb)\n\nUrl: [GitHub](https://github.com/guidone/redbot-authorization)",
       "category": "RedBot Flows",
       "in": [
           {
