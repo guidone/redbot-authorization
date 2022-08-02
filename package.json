@@ -1,6 +1,6 @@
 {
   "name": "redbot-authorization",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Handle user authorization and suspension in the chatbot. A plugin for Red-Bot.io",
   "main": "index.js",
   "author": {
