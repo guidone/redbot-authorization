@@ -3,7 +3,7 @@
       "id": "ab7c3e09.cb342",
       "type": "subflow",
       "name": "Authorization",
-      "info": "Check if the user is authorized or not suspended (first output), otherwise redirects the flow to the second output.\n\nGo to [Users](/mc/mc/users) control panel to suspend an user. \n\n![](https://dashboard.red-bot.io/assets/78677371-60ee-4534-a3ef-e287212d3acb)\n\nUrl: [GitHub](https://github.com/guidone/redbot-authorization)",
+      "info": "Access control for the chatbot. Use the configuration panel to set the chatbot *public* or *private*.\n\nIn a *private* chatbot, only authorized users can access it. In a *public* chatbot, all users can access the chatbot unless they are suspended.\n\nUse the User panel to set the *authorized* or *suspended* flags:\n\n![](https://dashboard.red-bot.io/assets/d9c6c84c-d3f5-4935-820b-0dda80ba52fb)\n\nUse the node as a pass-thru node: if the user is allowed to access the chatbot the flow will be redirected to the first output, otherwise the second output  \n\n![](https://dashboard.red-bot.io/assets/78677371-60ee-4534-a3ef-e287212d3acb)\n\n**Changelog**\n\n_1.2.0_: Improved documentation\n\n_1.1.1_: fixed translations and configuration not loaded properly at startup\n\n_1.1.0_: added subflow status\n\n_0.9.0_: authorize users\n\n_0.9.1_: fix if user not found",
       "category": "RedBot Flows",
       "in": [
           {
@@ -67,7 +67,7 @@
       "meta": {
           "module": "redbot-authorization",
           "type": "redbot-authorization",
-          "version": "1.1.1",
+          "version": "1.2.0",
           "author": "Guido Bellomo",
           "desc": "Authorization node for Mission Control",
           "keywords": "guido.bellomo@gmail.com",
